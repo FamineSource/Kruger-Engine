@@ -7,13 +7,11 @@ int16_t handleStatus(int16_t status_id) {
     return 0;
 }
 
-// Handle Errors between id 500 - 599
+// Handle Info Log between id 100 - 200
 const char* getLogMessage(int16_t status_id) {
     switch (status_id) {
-        case 104:
-            return "Dude instantiated!";
         default:
-            return "An unknown error occurred!";
+            return "An unknown information occurred!";
     }
 }
 
@@ -25,6 +23,8 @@ int16_t handleLog(int16_t status_id) {
 // Handle Errors between id 500 - 599
 const char* getErrorMessage(int16_t error_id) {
     switch (error_id) {
+        case 500:
+            return "No scene found";
         case 501:
             return "New FPS target value below 0";
         case 502:

@@ -33,7 +33,7 @@ void Engine::setFPSTarget(int fps) {
 }
 
 void Engine::run() {
-    if(scenes.empty()) return;
+    if(scenes.empty()) { handleStatus(500); return; }
     run(*scenes.front());
 }
 
