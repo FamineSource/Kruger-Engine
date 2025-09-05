@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -std=c++17 -Iinclude -Ithird-party/headers -Iinclude/Built-In/Components
 LDFLAGS_COMMON = -Llib -Lthird-party/lib/raylib -lraylib
 
-PROJECT_NAME = wired_engine
+PROJECT_NAME = kruger_engine
 PLATFORM ?= windows
 HIDE_CONSOLE ?= 1
 BUILD_DIR = build
