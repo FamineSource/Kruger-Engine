@@ -44,4 +44,6 @@ o-cls:
 
 # Clear all the .o files + the executable
 cls:
-	$(RM) *.o src/*.o $(BUILD_DIR)/$(EXEC)$(EXEC_EXT)
+	$(RM) *.o
+	for /r src %%f in (*.o) do $(RM) "%%f"
+	$(RM) $(BUILD_DIR)/$(EXEC)$(EXEC_EXT)
