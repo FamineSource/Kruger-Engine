@@ -46,4 +46,4 @@ o-cls:
 cls:
 	$(RM) *.o
 	for /r src %%f in (*.o) do $(RM) "%%f"
-	$(RM) $(BUILD_DIR)/$(EXEC)$(EXEC_EXT)
+	$(RM) .\\$(BUILD_DIR)\\$(EXEC)$(EXEC_EXT)
