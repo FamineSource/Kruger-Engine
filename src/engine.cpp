@@ -28,12 +28,12 @@ Engine::~Engine() {
 }
 
 void Engine::setFPSTarget(int fps) {
-    if(fps < 0) throw 501;
+    if(fps < 0) throw handleStatus(511);
     SetTargetFPS(fps);
 }
 
 void Engine::run() {
-    if(scenes.empty()) { handleStatus(500); return; }
+    if(scenes.empty()) throw handleStatus(500);
     run(*scenes.front());
 }
 
@@ -41,11 +41,22 @@ void Engine::run(int index) {
     run(*scenes[index]);
 }
 
+void Engine::handleMouse() {
+    if(!mouseStatus) return;
+    if(mouseStatus == HIDDENLOCKED || mouseStatus == LOCKED) SetMousePosition((int)(width / 2), (int)(height / 2));
+    if(mouseStatus == HIDDENLOCKED || mouseStatus == HIDDENFREE) HideCursor();
+}
+
+void Engine::setMouseStatus(MouseStatus status) {
+    mouseStatus = status;
+}
+
 void Engine::run(Scene &scene) {
     active_scene = &scene;
 
     float previousTime = GetTime();
     while (!WindowShouldClose()) {
+        handleMouse();
         PollInputEvents();
         BeginDrawing();
         ClearBackground(BLACK);
@@ -74,6 +85,7 @@ int Engine::displayFPS(float deltaTime) {
 }
 
 void Engine::playScene(int index) {
+    if(index < 0 || index >= scenes.size()) throw handleStatus(501);
     if (active_scene && !scene_factories.empty()) {
         for (int i = 0; i < scenes.size(); i++) {
             if (scenes[i] == active_scene && scene_factories[i] != nullptr) {

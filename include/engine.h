@@ -10,15 +10,26 @@
 #include "logger.h"
 #include "scene.h"
 
+enum MouseStatus {
+    FREE = 0,
+    HIDDENFREE = 1,
+    LOCKED = 2,
+    HIDDENLOCKED = 3,
+};
+
 class Engine {
 private:
     int width, height;
     const char* windowTitle;
 
+    MouseStatus mouseStatus;
+
     std::vector<Scene*> scenes;
     std::vector<std::function<Scene*()>> scene_factories;
     Scene* active_scene = nullptr;
 
+public:
+    static bool debugShapes;
 public:
     Engine();
     Engine(int, int);
@@ -27,6 +38,8 @@ public:
     Engine(int, int, const char*, int);
     ~Engine();
     
+    void handleMouse();
+
     void setFPSTarget(int);
     void run();
     void run(int);
@@ -41,6 +54,8 @@ public:
     }
 
     void playScene(int);
+
+    void setMouseStatus(MouseStatus);
 };
 
 #endif

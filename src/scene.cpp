@@ -17,13 +17,19 @@ void Scene::Instantiate(Entity &entity) {
     entity_list.push_back(&entity);
 }
 
+int Scene::getEntityCount() {
+    return entity_list.size();
+}
+
 void Scene::runScene(float deltatime) {
     if (!isRunning) {
         isRunning = true;
         onStart();
         runStartAll();
+        onLateStart();
     }
     
     onUpdate(deltatime);
     runUpdateAll(deltatime);
+    onLateUpdate(deltatime);
 }

@@ -1,6 +1,6 @@
 # What is Kruger?
 
-Kruger is a *game engine* written in C++ that uses the **ECS (Entity-Component-System)** architecture. This choice was made in order to make game creation and management dynamic, modular and easily scalable.<br>The project uses [Raylib]("https://github.com/raysan5/raylib") as a library for the graphical interface, rendering, audio and multiplatform support.
+Kruger is a *game engine* written in C++17 that uses the **ECS (Entity-Component-System)** architecture. This choice was made in order to make game creation and management dynamic, modular and easily scalable.<br>The project uses [Raylib]("https://github.com/raysan5/raylib") as a library for the graphical interface, rendering, audio and multiplatform support.
 
 > Although the engine is intended to be multiplatform, it has not been tested on MacOS
 
@@ -14,12 +14,12 @@ Kruger is a *game engine* written in C++ that uses the **ECS (Entity-Component-S
 ## Features
 
 - **ECS System**: The game is structured into entities, components that define data and properties, and systems that operate on these components. This model allows for a modular and easily maintainable design.
-- **Scene Management**: Kruger implements a system of scenes, well-defined game states (e.g. menus, levels) for smoother navigation and management of the game flow.
+- **Scene Management**: Kruger implements a scene system, which can be defined as game states (e.g. menus, levels) for smoother navigation and better game flow management.
 
 ## Dependencies
 – Raylib [[License]("https://github.com/raysan5/raylib/blob/master/LICENSE")]: graphical interface, rendering, audio and multiplatform support
 
 ## Credits
 
-- [raysan5]("https://github.com/raysan5"): obviously Ray, the creator of  [Raylib]("https://github.com/raysan5/raylib"), , without this library the project would not exist.
+- [raysan5]("https://github.com/raysan5"): obviously Ray, the creator of  [Raylib]("https://github.com/raysan5/raylib"), without this library the project would not exist.
 - [FamineSource]("https://github.com/FamineSource"): Hey! That's me! I built the rest of the architecture that the engine uses.

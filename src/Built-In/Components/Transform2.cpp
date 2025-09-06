@@ -4,6 +4,6 @@
 
 void Transform2::print() {
     printf("Position: {%f, %f}\n", position.x, position.y);
-    printf("Rotation: {%f, %f}\n", rotation.x, rotation.y);
+    printf("Rotation: {%f°}\n", rotation);
     printf("Scale: {%f, %f}\n", scale.x, scale.y);
 }

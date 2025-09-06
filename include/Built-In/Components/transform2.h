@@ -8,7 +8,7 @@
 class Transform2 : public Component {
 public:
     Vector2 position;
-    Vector2 rotation;
+    float rotation;
     Vector2 scale;
 
 public:
